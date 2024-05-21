@@ -1,0 +1,25 @@
+﻿@page
+@model EjerciciosRazorPages.Pages.decodificar_mensajeModel
+@{
+    ViewData["Title"] = "Decodificar mensaje";
+}
+
+<form method="POST" class="row">
+    <div class="mb-3 col">
+        <label for="mensaje" class="form-label">Ingresa el mensaje</label>
+        <textarea placeholder="Ingresa mensaje..." asp-for="mensaje" id="mensaje"></textarea>
+    </div>
+    <div class="mb-3 col">
+        <label for="valorN" class="form-label">Posiciones N:</label>
+        <input placeholder="Ingresa las posiciones a recorrer..." asp-for="valorN" id="valorN" />
+    </div>
+    <button type="submit" class="btn btn-primary">Calcular</button>
+</form>
+
+@if (Model.mensajeCodificado != "")
+{
+    <div>
+        <strong>El mensaje codificado es: <br> @Model.mensajeCodificado</strong>
+        <br />
+    </div>
+}

@@ -1,0 +1,30 @@
+﻿@page
+@model EjerciciosRazorPages.Pages.arreglo_numerosModel
+@{
+}
+
+<div>
+    <p>Arreglo aleatorio</p>
+    <p>@String.Join(", ", Model.NumerosAleatorios)</p>
+
+
+    <p>Suma</p>
+    <p>@Model.Suma</p>
+
+    <p>Promedio</p>
+    <p>@Model.Promedio</p>
+
+    @{
+        var numerosOrdenados = Model.NumerosAleatorios.ToArray();
+        Array.Sort(numerosOrdenados);
+    }
+
+    <p>Arreglo ordenado</p>
+    <p>@String.Join(", ", numerosOrdenados)</p>
+
+    <p>Moda</p>
+    <p>@String.Join(", ", Model.Moda)</p>
+
+    <p>Mediana</p>
+    <p>@Model.Mediana</p>
+</div>

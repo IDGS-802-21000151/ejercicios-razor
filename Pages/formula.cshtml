@@ -1,0 +1,48 @@
+﻿@page
+@model EjerciciosRazorPages.Pages.formulaModel
+@{
+}
+
+<form method="POST" class="row">
+    <div class="mb-3 col">
+        <label for="a" class="form-label">Ingresa a...</label>
+        <input asp-for="ValorA" id="a" step="0.01"></input>
+    </div>
+
+    <div class="mb-3 col">
+        <label for="b" class="form-label">Ingresa b...</label>
+        <input asp-for="ValorB" id="b" step="0.01"></input>
+    </div>
+
+    <div class="mb-3 col">
+        <label for="x" class="form-label">Ingresa x...</label>
+        <input asp-for="ValorX" id="x" step="0.01"></input>
+    </div>
+
+    <div class="mb-3 col">
+        <label for="y" class="form-label">Ingresa y...</label>
+        <input asp-for="ValorY" id="y" step="0.01"></input>
+    </div>
+
+    <div class="mb-3 col">
+        <label for="n" class="form-label">Ingresa n...</label>
+        <input asp-for="NumeroN" id="n" step="0.01"></input>
+    </div>
+
+    <button type="submit" class="btn btn-success">Calcular</button>
+</form>
+
+@if (Model.Resultado != null)
+{
+    <h2>Resultado: @Model.Resultado</h2>
+
+    int numeroVuelta = 1;
+
+    <div class="row">
+        @foreach (var resultado in Model.Resultados)
+        {
+            <div class="col">Resultado @numeroVuelta: @resultado</div>
+            numeroVuelta++;
+        }
+        </div>
+}

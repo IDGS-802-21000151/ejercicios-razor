@@ -1,0 +1,56 @@
+﻿@page
+@model EjerciciosRazorPages.Pages.indice_masa_corporalModel
+
+@{
+    ViewData["Title"] = "Índice masa corporal";
+}
+
+<form method="POST">
+    <div class="mb-3">
+        <label for="inputPeso" class="form-label">Peso</label>
+        <input type="number" class="form-control" id="inputPeso" step="0.1" asp-for="peso">
+    </div>
+    <div class="mb-3">
+        <label for="inputAltura" class="form-label">Altura</label>
+        <input type="step" class="form-control" id="inputAltura" step="0.1" asp-for="altura">
+    </div>
+    <button type="submit" class="btn btn-primary">Calcular</button>
+</form>
+
+<hr />
+
+@if (Model.imc != 0)
+{
+    string rangoImc = "";
+
+    if (Model.imc < 18)
+    {
+        rangoImc = "Peso Bajo";
+    }
+    else if (Model.imc >= 18 && Model.imc < 25)
+    {
+        rangoImc = "Peso Normal";
+    }
+    else if (Model.imc >= 25 && Model.imc < 27)
+    {
+        rangoImc = "Sobrepeso";
+    }
+    else if (Model.imc >= 27 && Model.imc < 30)
+    {
+        rangoImc = "Obesidad grado I";
+    }
+    else if (Model.imc >= 30 && Model.imc < 40)
+    {
+        rangoImc = "Obesidad grado II";
+    }
+    else if (Model.imc >= 40)
+    {
+        rangoImc = "Obesidad grado III";
+    }
+
+    <div>
+        <strong>Tu índice de masa corporal es = @Model.imc</strong>
+        <br />
+        <strong>Rango: @rangoImc</strong>
+    </div>
+}
